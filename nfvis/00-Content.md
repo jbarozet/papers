@@ -1,7 +1,3 @@
-+ Deploying VMs on Cisco NFVIS
-+ JMB
-+ Last Update: 09/06/2020
-
 
 *** 
 
