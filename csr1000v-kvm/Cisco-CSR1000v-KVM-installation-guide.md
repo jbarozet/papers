@@ -560,41 +560,41 @@ Once you see the VM is booted up login with the username/password admin.
 virt-manager, also known as Virtual Machine Manager, is a graphical tool for creating and managing guest virtual machines.
 
 Step 1 - Launch the virt-manager GUI. Click Create a new virtual machine.
-![virt-manager](pictures/csr1000v-kvm-11.png)
+![virt-manager](img/csr1000v-kvm-11.png)
 
 Step 2 - Do one of the following: 
 + For .qcow2: Select Import existing disk image.
 + For .iso: Select Local install media (ISO image or CDROM).
-![virt-manager](pictures/csr1000v-kvm-12.png)
+![virt-manager](img/csr1000v-kvm-12.png)
 
 In this example, we want to import the qcow2 image.
  
 Step 3 – Click on Browse to select the CSR qcow2 or iso file location.
-![virt-manager](pictures/csr1000v-kvm-13.png)
+![virt-manager](img/csr1000v-kvm-13.png)
 
 Step4 - Click on Browse Local
-![virt-manager](pictures/csr1000v-kvm-14.png)
+![virt-manager](img/csr1000v-kvm-14.png)
 
 Step5 - Select the disk image you want:
-![virt-manager](pictures/csr1000v-kvm-15.png)
+![virt-manager](img/csr1000v-kvm-15.png)
 
 Step6 - Select the Operating System:
-![virt-manager](pictures/csr1000v-kvm-16.png)
+![virt-manager](img/csr1000v-kvm-16.png)
 
 Step 7 - Configure the memory and CPU parameters.
-![virt-manager](pictures/csr1000v-kvm-17.png)
+![virt-manager](img/csr1000v-kvm-17.png)
 
 Step 8 - Click “Customize configuration before install” and click finish.
-![virt-manager](pictures/csr1000v-kvm-18.png)
+![virt-manager](img/csr1000v-kvm-18.png)
 
 Step 9 – By default there is one network interface mapped to network “default”. Click add Hardware to add a new network interface
-![virt-manager](pictures/csr1000v-kvm-19.png)
+![virt-manager](img/csr1000v-kvm-19.png)
  
 Step 10 – Select the service-net network. The first default interface is mapped to “default”. Click finish.
-![virt-manager](pictures/csr1000v-kvm-20.png)
+![virt-manager](img/csr1000v-kvm-20.png)
  
 Step 11 – Click Begin Installation on the top left corner of the window.
-![virt-manager](pictures/csr1000v-kvm-21.png)
+![virt-manager](img/csr1000v-kvm-21.png)
  
 Once you see the VM is booted up login with the username/password admin.
 
