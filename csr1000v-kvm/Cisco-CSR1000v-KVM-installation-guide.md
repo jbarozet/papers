@@ -68,8 +68,8 @@ virt-manager is a graphical interface that can also be used:
 
 Go to Edit > Connection Details – A popup will open with the list of all networks available:
  
-![virt-manager](pictures/csr1000v-kvm-01.png)
-![virt-manager](pictures/csr1000v-kvm-02.png)
+![virt-manager](img/csr1000v-kvm-01.png)
+![virt-manager](img/csr1000v-kvm-02.png)
 
 
 ## Create networks and bridges
@@ -128,24 +128,24 @@ To define the service-net network from an XML file without starting it:
 ### Using virt-manager (Graphical)
 
 Go to Edit > Connection Details – A popup will open with the list of all networks available:
-![virt-manager](pictures/csr1000v-kvm-03.png)
+![virt-manager](img/csr1000v-kvm-03.png)
 
 Click on the green plus icon in the left bottom corner to create a new network and give it a name:
-![virt-manager](pictures/csr1000v-kvm-04.png)
+![virt-manager](img/csr1000v-kvm-04.png)
 
 Click forward and define IPv4 parameters
-![virt-manager](pictures/csr1000v-kvm-05.png)
+![virt-manager](img/csr1000v-kvm-05.png)
 
 Click Forward and define IPv6 parameters:
-![virt-manager](pictures/csr1000v-kvm-06.png)
+![virt-manager](img/csr1000v-kvm-06.png)
 
 Now comes the interesting part. You need to decide whether this is going to be an isolated network with no outside access or one that can see the external traffic. Forwarding will allow KVM to send and receive packets to and from external networks. In the Destination dropdown list, you can choose with device you want to forward your virtual network to.
 Click Forward and define if the new network is isolated (service chain) or attached to a port.
-![virt-manager](pictures/csr1000v-kvm-07.png)
+![virt-manager](img/csr1000v-kvm-07.png)
  
 Click finish
 A new network “admin” has been created and a new bridge virbr2:
-![virt-manager](pictures/csr1000v-kvm-08.png)
+![virt-manager](img/csr1000v-kvm-08.png)
  
 Using virsh CLI command:
 ```bash
@@ -317,10 +317,10 @@ Create a Device Template and attach that template to your device. Enter all para
 Then go to Configuration > Device > WAN Edge List
 
 Click on the 3-dots on the right of a device and pick "Generate bootstrap configuration"
-![virt-manager](pictures/csr1000v-kvm-09.png)
+![virt-manager](img/csr1000v-kvm-09.png)
 
 For KVM select Cloud-Init. (VMWare uses Encoded String). Then click OK.
-![virt-manager](pictures/csr1000v-kvm-10.png)
+![virt-manager](img/csr1000v-kvm-10.png)
 
 vManage will generate a cloud-init file that contains the cloud-config and cloud-boothook parts. This file is MIME encoded and can be used to load the VM (ciscosdwan_cloud_init.cfg file) or for hardware device (ciscosdwan.cfg). This file has to be copied to the flash. 
 
