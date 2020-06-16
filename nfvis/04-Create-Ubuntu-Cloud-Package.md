@@ -2,24 +2,24 @@
 
 ## Objective
 Create a package file named"vedge-19.2.0.tar.gz" that contains:
--	qcow2 image
--	user-data
--	meta-data
--	image_properties.xml
--	package.mf
++ qcow2 image
++ user-data
++ meta-data
++ image_properties.xml
++ package.mf
 
 Using the following input files:
--	bionic-server-cloudimg-amd64.qcow2
--	user-data: Contains the init script
--	meta-data: Contains hostname
++ bionic-server-cloudimg-amd64.qcow2
++ user-data: Contains the init script
++ meta-data: Contains hostname
 
 The day0 config (clouding.cfg) is included in the package and therefore needs to be tokenised to that you can change the parameters for each new deployment.
 
 ## Get Ubuntu Cloud image
 Cloud Images:
-•	Ubuntu: https://cloud-images.ubuntu.com/
-•	CentOS: https://cloud.centos.org/centos/
-•	Debian: https://cdimage.debian.org/cdimage/openstack/current/
++ Ubuntu: https://cloud-images.ubuntu.com/
++ CentOS: https://cloud.centos.org/centos/
++ Debian: https://cdimage.debian.org/cdimage/openstack/current/
 
 Download the latest Ubuntu 18.04 (bionic) Server image:
 ```
