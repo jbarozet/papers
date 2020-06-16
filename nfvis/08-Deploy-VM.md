@@ -15,7 +15,7 @@ By default, the first interface of the deployed VM will be used for internal mon
 
 The following picture illustrates the mapping between the VM interfaces names, the NFVIS vNICs and NFVIS networks.
 
-![picture-06](img/nfvis/picture-06.png)
+![picture-06](img/picture-06.png)
 
 The first interface of the deployed VM will be used for internal monitoring. 
 -	By default local portal attaches vNIC0 of the monitored VM to int-mgmt-net.
