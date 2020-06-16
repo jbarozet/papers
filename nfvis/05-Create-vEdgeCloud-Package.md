@@ -23,6 +23,7 @@ meta_data and vendor_data are not used here and are essentially empty.
 The bootstrap config is a MIME encoded file. See [Cloudinit User-Data Formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html)
 
 The SD-WAN cloud-init file has two parts, cloud-config and cloud-boothook.
+
 **text/cloud-config**
 ```
 **MIME: text/cloud-config**
@@ -39,7 +40,6 @@ The SD-WAN cloud-init file has two parts, cloud-config and cloud-boothook.
 ```
 
 **text/cloud-boothook**
-
 ```
 **MIME: text/cloud-boothook**
   <Configuration of the node>
@@ -48,13 +48,13 @@ The SD-WAN cloud-init file has two parts, cloud-config and cloud-boothook.
 ## cloud-config
 From version 17.2, “rcc” became just a binary switch. When rcc has any values, cloud-init finds ca-certs. “rcc: 1” is enough, however by giving cert itself to rcc, it can work on previous versions as well. ca-certs can be configured in the general way of cloud-init.
 
-[Example](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)
+[Cloudinit Example](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)
 
-otp is the one time password for cloud-vedge. Giving the chassis number as uuid and serial number as otp, vEdge boots up with those information already configured.
+*otp* is the one time password for cloud-vedge. Giving the chassis number as uuid and serial number as otp, vEdge boots up with those information already configured.
 
-vbond is it’s vbond address, and org is Organization Name. When these are in cloud-config, vEdge is initialized with those information.
+*vbond* is it’s vbond address, and org is Organization Name. When these are in cloud-config, vEdge is initialized with those information.
 
-format-partition: 1 is specifically for vManage. With it, 2nd partition of HDD will be formatted automatically. Otherwise, VM will keep wait for user to confirm to format it and initialization stops.
+*format-partition*: 1 is specifically for vManage. With it, 2nd partition of HDD will be formatted automatically. Otherwise, VM will keep wait for user to confirm to format it and initialization stops.
 
 ## cloud-boothook
 Each node has confd (Tail-F confd) inside, and it is the configuration database. Entered configuration here is imported into confd CDB when it is initialized.
