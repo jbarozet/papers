@@ -24,7 +24,7 @@ The following picture illustrates the two major steps to deploy a VM on NFVIS:
 +	Create a package that may or may not contain a bootstrap configuration
 +	Deploy the VM using a deployment payload where you specify all parameters required (interfaces, parameters values in case the package contains a tokenized bootstrap config)
 
-![picture-01](img/picture-01-new.png)
+![picture-01](img/picture-01.png)
 
 ## How to Package
 There are at least 2 common ways to build a package.
