@@ -69,6 +69,7 @@ virt-manager is a graphical interface that can also be used:
 Go to Edit > Connection Details – A popup will open with the list of all networks available:
  
 ![virt-manager](img/csr1000v-kvm-01.png)
+
 ![virt-manager](img/csr1000v-kvm-02.png)
 
 
@@ -128,23 +129,29 @@ To define the service-net network from an XML file without starting it:
 ### Using virt-manager (Graphical)
 
 Go to Edit > Connection Details – A popup will open with the list of all networks available:
+
 ![virt-manager](img/csr1000v-kvm-03.png)
 
 Click on the green plus icon in the left bottom corner to create a new network and give it a name:
+
 ![virt-manager](img/csr1000v-kvm-04.png)
 
 Click forward and define IPv4 parameters
+
 ![virt-manager](img/csr1000v-kvm-05.png)
 
 Click Forward and define IPv6 parameters:
+
 ![virt-manager](img/csr1000v-kvm-06.png)
 
 Now comes the interesting part. You need to decide whether this is going to be an isolated network with no outside access or one that can see the external traffic. Forwarding will allow KVM to send and receive packets to and from external networks. In the Destination dropdown list, you can choose with device you want to forward your virtual network to.
 Click Forward and define if the new network is isolated (service chain) or attached to a port.
+
 ![virt-manager](img/csr1000v-kvm-07.png)
  
 Click finish
 A new network “admin” has been created and a new bridge virbr2:
+
 ![virt-manager](img/csr1000v-kvm-08.png)
  
 Using virsh CLI command:
@@ -317,9 +324,11 @@ Create a Device Template and attach that template to your device. Enter all para
 Then go to Configuration > Device > WAN Edge List
 
 Click on the 3-dots on the right of a device and pick "Generate bootstrap configuration"
+
 ![virt-manager](img/csr1000v-kvm-09.png)
 
 For KVM select Cloud-Init. (VMWare uses Encoded String). Then click OK.
+
 ![virt-manager](img/csr1000v-kvm-10.png)
 
 vManage will generate a cloud-init file that contains the cloud-config and cloud-boothook parts. This file is MIME encoded and can be used to load the VM (ciscosdwan_cloud_init.cfg file) or for hardware device (ciscosdwan.cfg). This file has to be copied to the flash. 
@@ -560,40 +569,51 @@ Once you see the VM is booted up login with the username/password admin.
 virt-manager, also known as Virtual Machine Manager, is a graphical tool for creating and managing guest virtual machines.
 
 Step 1 - Launch the virt-manager GUI. Click Create a new virtual machine.
+
 ![virt-manager](img/csr1000v-kvm-11.png)
 
 Step 2 - Do one of the following: 
 + For .qcow2: Select Import existing disk image.
 + For .iso: Select Local install media (ISO image or CDROM).
++ 
 ![virt-manager](img/csr1000v-kvm-12.png)
 
 In this example, we want to import the qcow2 image.
  
 Step 3 – Click on Browse to select the CSR qcow2 or iso file location.
+
 ![virt-manager](img/csr1000v-kvm-13.png)
 
 Step4 - Click on Browse Local
+
 ![virt-manager](img/csr1000v-kvm-14.png)
 
 Step5 - Select the disk image you want:
+
 ![virt-manager](img/csr1000v-kvm-15.png)
 
 Step6 - Select the Operating System:
+
 ![virt-manager](img/csr1000v-kvm-16.png)
 
 Step 7 - Configure the memory and CPU parameters.
+
 ![virt-manager](img/csr1000v-kvm-17.png)
 
 Step 8 - Click “Customize configuration before install” and click finish.
+
 ![virt-manager](img/csr1000v-kvm-18.png)
 
 Step 9 – By default there is one network interface mapped to network “default”. Click add Hardware to add a new network interface
+
 ![virt-manager](img/csr1000v-kvm-19.png)
  
 Step 10 – Select the service-net network. The first default interface is mapped to “default”. Click finish.
+
 ![virt-manager](img/csr1000v-kvm-20.png)
  
 Step 11 – Click Begin Installation on the top left corner of the window.
+
 ![virt-manager](img/csr1000v-kvm-21.png)
  
 Once you see the VM is booted up login with the username/password admin.
