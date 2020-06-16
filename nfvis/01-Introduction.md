@@ -24,7 +24,7 @@ The following picture illustrates the two major steps to deploy a VM on NFVIS:
 +	Create a package that may or may not contain a bootstrap configuration
 +	Deploy the VM using a deployment payload where you specify all parameters required (interfaces, parameters values in case the package contains a tokenized bootstrap config)
 
-![picture-01](../img/nfvis/picture-01.png)
+![picture-01](img/nfvis/picture-01.png)
 
 ## How to Package
 There are at least 2 common ways to build a package.
@@ -33,11 +33,11 @@ There are at least 2 common ways to build a package.
 
 The following figure shows the NFVIS local portal:
 
-![picture-02](../img/nfvis/picture-02.png)
+![picture-02](img/nfvis/picture-02.png)
  
 The following figure shows the how to download the python script:
 
-![picture-03](../img/nfvis/picture-03.png)
+![picture-03](img/nfvis/picture-03.png)
 
 The packaging utility creates a tar.gz file which contains:
 + The raw QCOW2 file

@@ -64,10 +64,10 @@ Create a Device Template and attach that template to your device. Enter all para
 Then go to Configuration > Device
 
 Click on the 3-dots on the right of a device and pick "Generate bootstrap configuration"
-![picture-04](../img/nfvis/picture-04.png)
+![picture-04](img/nfvis/picture-04.png)
  
 Then choose cloud-init file:
-![picture-05](../img/nfvis/picture-05.png)
+![picture-05](img/nfvis/picture-05.png)
 
 vManage will generate a cloud-init file that contains the cloud-config and cloud-boothook parts. This file is MIME encoded and can be used to load the VM or as a ciscosdwan.cfg file for hardware device. You can then tune this file according to your needs.
 
