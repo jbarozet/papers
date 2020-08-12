@@ -514,7 +514,7 @@ Boot up the cEdge VM:
 # virt-install \
     --name=cedge \
     --os-type=linux \
-    --os-variant=rhel4 \
+    --os-variant=rhel4.0 \
     --arch=x86_64 \
     --cpu host \
     --vcpus=2 \
@@ -532,7 +532,7 @@ Boot up the cEdge VM with Bootstrap Config as iso file:
 # virt-install \
     --name=cedge \
     --os-type=linux \
-    --os-variant=rhel4 \
+    --os-variant=rhel4.0 \
     --arch=x86_64 \
     --cpu host \
     --vcpus=2 \
