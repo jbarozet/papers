@@ -1,6 +1,8 @@
 
 
-# Create and Boot CSR1000v
+# Create and Boot CSR1000v SD-WAN
+
+<br>
 
 ## Download CSR1000v SD-WAN Image
 
@@ -13,8 +15,6 @@ Go to:
 + => Software-Defined WAN (SD-WAN) 
 + => XE SD-WAN Routers > CSR 1000V Series IOS XE SD-WAN
 
-=> csr1000v-ucmk9.16.12.1e-serial.qcow2
-
 Then copy this file to KVM disk folder - this will be the image disk used by the CSR.
 
 Example:
@@ -22,6 +22,8 @@ Example:
 ```bash
 # cp csr1000v-ucmk9.16.12.1e-serial.qcow2 /home/jmb/kvm/disks/cedge.qcow2
 ```
+
+<br>
 
 ## Create and boot the CSR1000v SD-WAN using virt-install
 

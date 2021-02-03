@@ -3,6 +3,8 @@
 
 # Cloud-init and Datasources
 
+<br>
+
 ## Cloud-init
 
 In a cloud environment, we use images to install systems. The system automation is generally done by cloud-init. Cloud-init was originally developed for Ubuntu GNU/Linux on the Amazon EC2 cloud. It has become the de facto installation configuration tool for most Unix-like systems on most cloud environments. 
@@ -22,14 +24,19 @@ For more information, refer to Cloudinit User-Data Formats:
 
 + https://cloudinit.readthedocs.io/en/latest/topics/format.html
 
+<br>
 
 ## Datasources
 
 Datasources are sources of configuration data for cloud-init that typically come from the user or come from the stack that created the configuration drive. Typical userdata would include files, yaml, and shell scripts while typical metadata would include server name, instance id, display name and other cloud specific details. Since there are multiple ways to provide this data (each cloud solution seems to prefer its own way) internally a datasource abstract class was created to allow for a single way to access the different cloud systems methods to provide this data through the typical usage of subclasses.
 
+<br>
+
 ## Config-Drive
 
 It is a kind of configuration provider for Cloud-Init used by OpenStack. Config Drive is a data source which reads a local ‘CD-Rom’ device which contains the metadata for the Virtual Machine. This allows for auto configuration of Virtual Machines without them requiring network.
+
+<br>
 
 ## Cloud-Config
 

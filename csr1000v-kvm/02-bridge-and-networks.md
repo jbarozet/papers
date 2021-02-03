@@ -1,5 +1,7 @@
 # Bridges and Networks
 
+<br>
+
 ## Bridge
 
 A bridge can be created either using Virtual Machine Manager, using virsh command line tool, by directly editing network scripts or using Linux Network management tools.
@@ -13,6 +15,8 @@ virbr0   8000.5254008a7dc1    yes virbr0-nic
 virbr1   8000.5254001c3277    yes virbr1-nic
 #
 ```
+
+<br>
 
 ## Networks
 
@@ -44,8 +48,11 @@ Go to Edit > Connection Details – A popup will open with the list of all netwo
 
 ![virt-manager](img/csr1000v-kvm-02.png)
 
+<br>
 
 ## Create networks and bridges
+
+<br>
 
 ### Using virsh (CLI)
 
@@ -102,6 +109,8 @@ To define the service-net network from an XML file without starting it:
 # virsh net-define service-net.xml
 ```
 
+<br>
+
 ### Using virt-manager (Graphical)
 
 Go to Edit > Connection Details – A popup will open with the list of all networks available:
@@ -129,6 +138,10 @@ Click finish
 A new network “admin” has been created and a new bridge virbr2:
 
 ![virt-manager](img/csr1000v-kvm-08.png)
+
+
+
+### Monitoring
 
 Using virsh CLI command:
 
@@ -163,6 +176,8 @@ Example: Display details of new created network admin:
 #
 ```
 
+<br>
+
 ## Start network
 
 Start this network with the command net-start:
@@ -178,6 +193,8 @@ Example:
 # virsh net-start admin
 ```
 
+<br>
+
 ## Stop an active network
 
 net-destroy - Stops an active network and deallocates all resources used by it, e.g. stopping appropiate dnsmasq process, releasing the bridge. The virtual network being stopped can be persistent or transient.
@@ -190,4 +207,3 @@ net-destroy - Stops an active network and deallocates all resources used by it, 
 <br>
 
 
-# 

@@ -1,14 +1,20 @@
 # INTRODUCTION
 
+<br>
+
 ## Pre-requisites
 
 This document assumes that you have the KVM hypervisor already installed along with the libvirt management application. Additionally, you will need the virt-install and cloud-localds CLI tools.
 
 It is also assumed that you have downloaded the virtual disk images from https://software.cisco.com (make sure you take -serial qcow2 image) and the serial file from the PnP Portal with your Smart Account / Virtual Account.
 
+<br>
+
 ## KVM
 
 KVM has both GUI (virt-manager) and command line (virsh, virt-install) management tools, so you can choose whichever suits you best.
+
+<br>
 
 ## CSR1000v Requirements
 
