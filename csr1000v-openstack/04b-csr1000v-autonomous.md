@@ -90,10 +90,14 @@ Check CSR instance:
 
 <br>
 
-Then you can switch to control mode:
+Then you can switch to control mode - Be careful that configuration will be fully erased:
 
 ```
 # controller-mode enable
 ```
+
+<br>
+
+If you want to reboot in controller-mode with a day0 configuration, you can generate a bootstrap file from vManage and copy that file into flash with the exact filename `ciscosdwan_cloud_init.cfg`. 
 
 <br>
