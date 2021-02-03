@@ -1,7 +1,5 @@
 # Create and Boot CSR1000v (Autonomous mode)
 
-<br>
-
 ## Creating the Cisco CSR 1000v VM Using virsh
 
 Using the virt-install command, create the instance and boot, using the following syntax:
@@ -23,7 +21,7 @@ Using the virt-install command, create the instance and boot, using the followin
      --accelerate
 ```
 
-
+<br>
 
 ## Creating the Cisco CSR 1000v VM Using the virt-manager GUI Tool (qcow2 or iso image)
 
@@ -43,13 +41,11 @@ virt-manager, also known as Virtual Machine Manager, is a graphical tool for cre
 
 - Step 6 - Click Finish.
 
-
+<br>
 
 ## Creating the Serial Console Access in KVM
 
 [CCO Reference](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_0111.html#con_1307796)
-
-<br>
 
 Steps
 
@@ -64,8 +60,6 @@ Steps
 9. Choose the Use Telnet option.
 10. Click Finish.
 
-<br>
-
 After the Cisco CSR 1000v has booted successfully, you can change the console port access to the router using Cisco IOS XE commands. After you change the console port access, you must reload or power-cycle the router.
 
 - enable
@@ -78,7 +72,7 @@ After the Cisco CSR 1000v has booted successfully, you can change the console po
   - platform console virtual
   - platform console serial
 
- 
+ <br>
 
 ## Creating a Bootstrap Day0 Configuration for virt-manager
 
@@ -92,15 +86,11 @@ And
 
 https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_0101.html#con_1337709
 
-<br>
-
-Step2 - Create a disk image from this file using below command
+**Step2** - Create a disk image from this file using below command
 
 ```
 mkisofs -l -o config.iso <configuration_filename>
 ```
-
-<br>
 
 **Step3** - Mount the csr_config.iso as an additional disk during creation of the CSR virtual machine.
 
@@ -133,8 +123,6 @@ To determine which template is being used for vCPU distribution, use the followi
 ```
 show platform software cpu alloc
 ```
-
-<br>
 
 Example:
 
@@ -180,25 +168,17 @@ csr51#
 
 https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide.html
 
-
-
 Installing the Cisco CSR 1000v in KVM Environments
 
 https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_0101.html
-
-
 
 Creating the Instance Using the OpenStack Command Line Tool
 
 https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_0101.html#task_1320522
 
-
-
 Installing the Cisco CSR 1000v in VMware ESXi Environments
 
 https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_011.html
-
-
 
 CSR 1000V Software Architecture (extract from Cisco press)
 
