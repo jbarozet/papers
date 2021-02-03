@@ -1,7 +1,5 @@
 # Instantiate a vEdgeCloud
 
-<br>
-
 ## Generate Bootstrap Configuration (cloud-init file)
 
 To add a virtual edge you need to generate a bootstrap file. Navigate to the devices page under: Configuration > Devices > WAN Edge List
@@ -37,8 +35,6 @@ On the host server, create and ISO image from the cloud-init file that can be mo
 ```bash
 # cloud-localds config.iso vedge.cfg
 ```
-
-<br>
 
 That creates a cdrom image that contains 2 files:
 
