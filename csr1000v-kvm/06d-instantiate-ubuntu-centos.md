@@ -91,8 +91,6 @@ Even through the image we downloaded was in the correct qcow2 format we still ar
 
 We will need to customize the image at first boot. We mentioned before that the cloud systems are normally limited to key based authentication over SSH. This means that we cannot use a username and password. We will either need to inject SSH keys or set the password for the default user. We will also take the opportunity to set the host name.
 
- <br>
-
 ### user-data file
 
 The user-data file can contain a number of different directives to help you customize your cloud server. For this tutorial, we will just introduce a couple of them. And we define a new user and password (this is just for a lab, not nothing for production). We will create a text file, this file must start with #cloud-config.
@@ -119,8 +117,6 @@ name: centos
 plain_text_passwd: 'centos'
 gecos: centos
 ```
-
-<br>
 
 **Notes**:
 
@@ -262,8 +258,6 @@ That creates a cdrom image that contains 2 files:
 - user-data
 - metadata
 
-<br>
-
 We now have two disks for a virtual machine that we will create, proxy1.img and proxy1.iso. We are ready to import these disks to the QEMU/ KVM virtual machine now. We can use either virt-install or virt-manager to do this. For ease of instruction, we will make use of the command line and the virt-install command.
 
 <br>
@@ -315,13 +309,9 @@ https://serverascode.com/2018/06/26/using-cloud-images.html
 
 https://serverfault.com/questions/920117/how-do-i-set-a-password-on-an-ubuntu-cloud-image
 
-<br>
-
 Cloud-init
 
 https://cloudinit.readthedocs.io/en/latest/topics/examples.html
-
-<br>
 
 Cloud-init for CentOS
 
