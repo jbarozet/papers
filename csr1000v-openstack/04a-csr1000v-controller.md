@@ -1,15 +1,54 @@
-# Deploying CSR1000v
+# Deploying CSR1000v in Controller Mode
+
+## Download CSR1000v SD-WAN Image
+
+Download image from CCO: https://software.cisco.com/download/home
+
+Go to:
+
++ Downloads Home 
++ => Routers 
++ => Software-Defined WAN (SD-WAN) 
++ => XE SD-WAN Routers > CSR 1000V Series IOS XE SD-WAN
+
+Then copy this file to your openstack cluster - this will be the image disk used by the CSR.
 
 <br>
 
-## Instantiating CSR10000v in Controller Mode
+## Create openstack image
 
-<br>
-
-Deploying CSR1000v in controller mode
+If image doesn’t exist, upload it
 
 ```
-$ openstack server create --image csr1000v-17.02.01 \
+openstack image create --disk-format qcow2 --container-format bare --file $IMAGE_FILE $IMAGE_NAME
+
+```
+
+Example:
+
+```
+openstack image create --disk-format qcow2 --container-format bare --file csr1000v-universalk9.17.02.01prd14.qcow2 csr1000v-17.02.01
+```
+
+<br>
+
+## Create Openstack flavor and networks
+
+In this specific paper, I've created a flavor called `flavour_csr` and the following networks:
+
+- Management interface (connected to vpn512): sdwan-mgt
+- Internet interface (transport), connected to vpn0: mainnet
+- MPLS interface (transport), connected to vpn0: sdwan-mpls
+- A service VPN interface: sdwan-lan-site5
+
+<br>
+
+## Instantiating CSR10000v in Controller Mode with a Day0 config
+
+Deploying CSR1000v in controller mode with a day0 configuration, you have to use the `config-drive` option and give the bootstrap file that was generated in section 2 (create bootstrap file): `ciscosdwan_cloud_init.cfg`
+
+```bash
+# openstack server create --image csr1000v-17.02.01 \
    --flavor flavor_csr \
    --network sdwan-mgmt \
    --network mainnet \
@@ -18,15 +57,31 @@ $ openstack server create --image csr1000v-17.02.01 \
    --config-drive true \
    --file day0-config=ciscosdwan_cloud_init.cfg \
    csr5
+#
 ```
 
 <br>
 
+## Instantiating CSR10000v in Controller Mode without a Day0 config
 
+Deploying CSR1000v in controller mode with no day0 configuration is also possible. 
 
-## Basic day0 configuration of CSR1000v
+```bash
+# openstack server create --image csr1000v-17.02.01 \
+   --flavor flavor_csr \
+   --network sdwan-mgmt \
+   --network mainnet \
+   --network sdwan-mpls \
+   --network sdwan-lan-site5 \
+   csr5
+#
+```
+
+The next step is to to provide the necessary information to the virtual router to register to the controllers.
 
 <br>
+
+### Basic day0 configuration of CSR1000v
 
 The best and easiest option is to create the bootstrap file from vManage - even a very basic one that contains the required parameters for the Virtual Router to connect to the controllers - create an ISO file with that bootstrap config and mount it as a CDROM. 
 
@@ -67,8 +122,6 @@ line vty 0 4
 
 commit
 ```
-
-<br>
 
 ssh to your CSR1000v and cut/paste the following config - Tunnel number is interface number:
 
@@ -118,9 +171,7 @@ sdwan
 
 <br>
 
-## Register CSR1000v to SD-WAN Controllers
-
- <br>
+### Register CSR1000v to SD-WAN Controllers
 
 Go to vManage > Devices
 

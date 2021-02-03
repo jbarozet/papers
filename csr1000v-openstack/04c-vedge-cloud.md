@@ -15,8 +15,6 @@ Note: the same binary is used for vBond and vEdgeCloud.
 
 <br>
 
-
-
 ## Instantiate vEdgeCloud on Openstack (without day0 config)
 
 Create networks called sdwan-mgmt, sdwan-inet and sdwan-mpls
@@ -85,8 +83,6 @@ vpn 0
 
 <br>
 
-
-
 **Register the vEdgeCloud to the controllers**
 
 Pick a uuid value => Chassis Number
@@ -141,10 +137,6 @@ Then activate the new UUID:
 request vedge-cloud activate chassis-number <UUID> token <OTP>
 ```
 
-<UUID> and <TOKEN> are the values saved in the step before.
-
-<br>
-
-
+`<UUID>` and `<TOKEN>` are the values saved in the step before.
 
 <br>

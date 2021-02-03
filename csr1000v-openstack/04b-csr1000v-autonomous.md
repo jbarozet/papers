@@ -1,7 +1,5 @@
 # Instantiating CSR10000v in Autonomous Mode
 
-
-
 Example of day0 config file that includes the bare minimum to be able to ssh to instance when running:
 
 ```
@@ -40,13 +38,14 @@ Deploying CSR1000v in autonomous mode - With a config-drive option to start CSR1
 
 The --config-drive option can be used to specify that the configuration is loaded on the Cisco CSR 1000V when it comes up. Set the --config-drive option to “true” and specify the configuration file name. The configuration file can either use the “ovf-env.xml” file using the OVF format, or the “iosxe_config.txt” file in which you enter the router configuration to be booted.
 
-```
-$ openstack server create --image CSR1000v-17.3.2 \
+```bash
+# openstack server create --image CSR1000v-17.3.2 \
   --flavor flavor_csr_large \
   --network mainnet \
   --config-drive=true \
   --file iosxe_config.txt=/home/admin/jmb/iosxe_config.txt \
   csr-test
+#
 ```
 
 <br>
