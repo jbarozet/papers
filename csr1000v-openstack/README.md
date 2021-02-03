@@ -15,8 +15,7 @@
 + [04d-ftd.md](04d-ftd.md) 
 + [05-sdwan-controllers.md](05-sdwan-controllers.md) 
 + [06-heat.md](06-heat.md) 
-
-- [07 Openstack Command](07-openstack-commands.md) 
++ [07 Openstack Command](07-openstack-commands.md) 
 
 
 
