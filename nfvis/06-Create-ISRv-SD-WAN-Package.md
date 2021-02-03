@@ -16,10 +16,14 @@ Using the following input files:
 
 cloudinit.cfg is the bootstrap configuration for the ISRv. This day0 config is included in the package and therefore needs to be tokenised to that you can change the parameters for each new deployment.
 
+<br>
+
 ## cloud-init file format
 The bootstrap config is a MIME encoded file, similar to the vEdgeCloud file format. 
 
 The SD-WAN cloud-init file has two parts, cloud-config and cloud-boothook. The cloud-config section is the same, the cloud-boothook section contains the IOS-XE SD-WAN CLI configuration.
+
+<br>
 
 ## Creating cloud-init file using Linux tools
 Refer to the same section in the vEdgeCloud chapter.
@@ -251,8 +255,13 @@ Content-Disposition: attachment; filename="cloud-boothook.txt"
 --===============6177259887390062818==--
 ```
 
+<br>
+
 **IMPORTANT NOTE:** 
+
 > ${NICID_0_IP_ADDRESS}, ${NICID_0_NETMASK} and ${NICID_0_CIDR_PREFIX} are reserved parameters. The VM Lifecycle Manager (ESC-Lite) on NFVIS will replace these variables with values assigned by ESC-Lite. This is used for the int-mgmt-net addresses. They are assigned by NFVIS and not by DHCP.
+
+<br>
 
 ## Create ISRv SD-WAN package
 

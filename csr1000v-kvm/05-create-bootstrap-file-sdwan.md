@@ -236,13 +236,22 @@ Create the iso image to pass the ciscosdwan_cloud_init.cfg bootstrap file to clo
 # mkisofs -l -o config.iso ciscosdwan_cloud_init.cfg
 ```
 
-**Note**: This tool does not work:
+This file config.iso will be used to create the CSR1000v with virt-install. The Bootstrap Configuration will be passed to the router at bootup.
+
+<br>
+
+**Note**: Do not use the following command:
 
 ```bash
 # cloud-localds config.iso <configuration_filename>
 ```
 
-This file config.iso will be used to create the CSR1000v with virt-install. The Bootstrap Configuration will be passed to the router and installed in the bootflash.
+That creates a cdrom image that contains 2 files:
+
+- user-data
+- metadata
+
+This is used by vEdgeCloud.
 
 
 <br>

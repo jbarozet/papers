@@ -16,7 +16,8 @@ Note: the same binary is used for vBond and vEdgeCloud.
 <br>
 
 
-## Instantiate vEdgeCloud on Openstack
+
+## Instantiate vEdgeCloud on Openstack (without day0 config)
 
 Create networks called sdwan-mgmt, sdwan-inet and sdwan-mpls
 
@@ -84,43 +85,24 @@ vpn 0
 
 <br>
 
-## Register vEdgeCloud to SD-WAN Controllers
 
 
-Go to vManage > Devices
+**Register the vEdgeCloud to the controllers**
 
-Select a vEdgeCloud that is available and generate the bootstrap config
+Pick a uuid value => Chassis Number
 
-![vedgecloud-01](img/vedgecloud-01.png)
+Pick the otp value => token
 
+ssh to your VM and cut/paste the a day0 configuration.
 
-
-A popup will appear:
-
-![vedgecloud-02](img/vedgecloud-02.png)
-
-Select Cloud-Init
-
-That gives you the bootstrap config that you can apply when you instantiate the VM:
-
-![vedgecloud-03](img/vedgecloud-03.png)
-
-
-
-Save uuid value => Chassis Number
-
-Save otp value => token
-
-ssh to your VM and cut/paste the following config:
+The following configuration illustrates a basic day0 configuation:
 
 ```
 system
- host-name vedge1
- location Paris
- system-ip 10.0.0.101
- site-id 10
+ host-name <hostname>
+ system-ip <ip-address>
+ site-id <site-id>
  organization-name "<YOUR ORG NAME>"
- clock timezone Europe/Paris
  vbond <YOUR VBOND IP>
 !
 vpn 0
@@ -151,7 +133,7 @@ vpn 512
 !
 ```
 
- 
+ <br>
 
 Then activate the new UUID:
 
@@ -161,5 +143,8 @@ request vedge-cloud activate chassis-number <UUID> token <OTP>
 
 <UUID> and <TOKEN> are the values saved in the step before.
 
+<br>
 
 
+
+<br>

@@ -10,7 +10,10 @@ A deployment payload is used to spin up a VM, it contains:
 -	Monitoring parameters
 -	etc
 
+<br>
+
 ## NFVIS Interfaces
+
 By default, the first interface of the deployed VM will be used for internal monitoring. This behaviour can be changed with the deployment payload.
 
 The following picture illustrates the mapping between the VM interfaces names, the NFVIS vNICs and NFVIS networks.
@@ -40,6 +43,10 @@ Ubuntu Cloud
 Ubuntu	NFVIS vNIC
 ens3	vNIC0
 ens4	vNIC1
+
+
+
+<br>
 
 ## Port Forwarding
 
@@ -105,7 +112,10 @@ Port forwarding Sample Deployment Payload
 </port_forwarding>
 ```
 
+<br>
+
 ## NFVIS Networks
+
 Verify that all networks required for your deployment are configured.
 ```
 curl -k -v -u "admin:admin" -H content-type:application/vnd.yang.data+xml -X GET https://10.60.23.12/api/config/networks\?deep
@@ -131,8 +141,10 @@ Retrieve network info
 curl -k -v -u admin:admin "https://10.60.23.12/api/config/networks?deep"
 ```
 
+<br>
 
 ## Deploy vEdgeCloud VM Using package
+
 The VM package is already on NFVIS. Refer to section "Register Package". You can perform multiple VM deployments using the same registered image.
 
 Before deploying the VM, you can perform a resource check to ensure that you have sufficient resources for the deployment. Check with the flavor you plan to use:
@@ -346,6 +358,7 @@ Response:
 </deployments>
 ```
 
+<br>
 
 ## Deploy Ubuntu VM Using package
 
@@ -501,6 +514,7 @@ UBUNTU  VM_INERT_STATE
 nfvis-2#
 ```
 
+<br>
 
 ## Management Network
 
@@ -557,6 +571,8 @@ VM NAME                                                   STATE
 
 UCPE-PARIS#
 ```
+
+<br>
 
 ## Un-deploy a VM
 

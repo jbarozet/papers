@@ -1,6 +1,6 @@
 
 
-# Create and Boot CSR1000v SD-WAN
+# Create and Boot CSR1000v (Controller Mode)
 
 <br>
 

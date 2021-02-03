@@ -201,6 +201,14 @@ Example:
 $  openstack server remove network csr5 mainnet  
  ```
 
+Delete instance
+
+```
+$ openstack server delete csr5
+```
+
+
+
 
 
 Get VNC console
