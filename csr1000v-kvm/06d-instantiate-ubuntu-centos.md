@@ -1,7 +1,5 @@
 # Create Ubuntu/CentOS Images
 
-<br>
-
 ## Downloading Cloud Images
 
  The first step is to locate the cloud image you need. I would suggest using your favoured search engine andlook for “<distro> clould images”.
@@ -12,11 +10,7 @@ Cloud Images:
 - CentOS:     https://cloud.centos.org/centos/
 - Debian:     https://cdimage.debian.org/cdimage/openstack/current/
 
- <br>
-
 Once downloaded, I would recommend leaving the image untouched on the download location such as home directory. It can be copied to the correct images directory later. Copy the file than move, as it leaves you an untouched master image that you can copy again later should you need it again.
-
- <br>
 
 To download the latest Ubuntu 18.04 Server image:
 
@@ -30,11 +24,9 @@ To download a recent CentOS 7 image:
 $ wget https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-1809.qcow2
 ```
 
-<br>
-
 Note: The default user account on Ubuntu is “ubuntu” and on CentOS it is “centos”.
 
- 
+ <br>
 
 # Resize Virtual Disk Size
 
@@ -43,8 +35,6 @@ Install qemu utils
 ```bash
 # sudo apt-get install qemu-utils
 ```
-
-<br>
 
 The virtual disk size is likely to be quite small. We may choose to increase the size before we use it for any virtual system. We can query the current size:
 
@@ -255,8 +245,6 @@ Now that the meta-data and user-data files are ready, lets create the config.iso
 # genisoimage -output config.iso -volid cidata -joliet -rock user-data meta-data
 ```
 
-<br>
-
 Another command: we can also use the command cloud-localds for this. If this package is not installed, you can add it with:
 
 ```bash
@@ -288,8 +276,6 @@ As we mentioned before the great feature of these cloud images is the ability to
 # sudo apt install virtinstall
 ```
 
-<br>
-
 Once installed we can either create a script to import the disks or run directly from the command line. Here is an example using the disk I created previously:
 
 ```bash
@@ -306,11 +292,7 @@ Once installed we can either create a script to import the disks or run directly
             --import
 ```
 
-<br>
-
 On running the command, the Virtual Machine meta-data will be created and the image will fire up. We will be connected to the console of the system. We can log in as the user Ubuntu with the password we supplied to cloud-config.
-
-<br>
 
 If you recall, we also increased the size of the virtual disk, we can see the result of this using the command lsblk:
 
