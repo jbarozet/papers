@@ -54,6 +54,8 @@ VM Packaging Utility (nfvpt.py) bootstrap option examples:
 -	ISRv: --bootstrap ovf-env.xml:file1,ios-xe.txt:file2
 -	vEdgeCloud: --bootstrap /openstack/latest/user_data:cloudinit.cfg,/openstack/latest/meta_data.json:meta_data,/openstack/latest/vendor_data.json:vendor_data
 
+<br>
+
 ## Package Creation using the VM Packaging Utility
 Packaging utility can be found on CCO
 -	Downloads Home > Products > Routers > Network Functions Virtualization > Enterprise NFV Infrastructure Software >

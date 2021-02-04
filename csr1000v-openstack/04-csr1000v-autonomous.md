@@ -1,6 +1,8 @@
 # Instantiating CSR10000v in Autonomous Mode
 
-Example of day0 config file that includes the bare minimum to be able to ssh to instance when running:
+Deploying CSR1000v in autonomous mode with a day0 configuration, you have to use the `config-drive` option and give a bootstrap file.
+
+The following example of day0 config file illustrates an IOS-XE config that includes the bare minimum to be able to ssh to instance when running:
 
 ```
 hostname csr-test

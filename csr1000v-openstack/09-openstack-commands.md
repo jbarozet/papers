@@ -1,16 +1,12 @@
-
+# Openstack Commands
 
 ## Images
-
-
 
 Show images:
 
 ```
   $  openstack image list  
 ```
-
-
 
 Show specific image:
 
@@ -49,8 +45,6 @@ Example:
 
 ```
 
-
-
 If image doesn’t exist, upload it
 
 ```
@@ -70,15 +64,13 @@ Rename an image - From: csr1000v-16.12.1b to: CSR000v-SDWAN-16.12.1b
 openstack image set --name CSR000v-SDWAN-16.12.1b --instance-id a044bf3f-3aec-467e-8ddc-f63c2d055fc6 csr1000v-16.12.1b
 ```
 
-
+<br>
 
 ## Key Pairs
 
 ```
 $ openstack keypair list
 ```
-
-
 
 Example:
 
@@ -98,19 +90,15 @@ $[admin@berlin-cloud ~(keystone_admin)]$ openstack keypair list
 
 ```
 
-
-
 If keypair doesn't exist, create one
 
 ```
 openstack keypair show $vmname || openstack keypair create $vmname > $vmname.pem
 ```
 
-
+<br>
 
 ## Networks
-
-
 
 List existing networks
 
@@ -137,7 +125,7 @@ Example:
 [admin@berlin-cloud ~(keystone_admin)]$
 ```
 
-
+<br>
 
 ## Ports
 
@@ -147,19 +135,15 @@ List all ports:
 $ openstack port list
 ```
 
-
-
 Set
 
 ```
 $ openstack port set —data-plane-status active port-name
 ```
 
-
+<br>
 
 ## Flavors
-
- 
 
 Show flavours:
 
@@ -167,7 +151,7 @@ Show flavours:
 $ openstack flavor list
 ```
 
-
+<br>
 
 ## Servers (instances)
 
@@ -207,23 +191,15 @@ Delete instance
 $ openstack server delete csr5
 ```
 
-
-
-
-
 Get VNC console
 
  ```
 $  openstack console url show <server>
  ```
 
-
-
-  
+ <br>
 
 ## Volumes
-
-
 
 ```
 openstack volume create --image CSR1000v-16.11.1a --size 20 bootable_volume
@@ -242,7 +218,7 @@ openstack server create \
   sdwan-csr52
 ```
 
-
+<br>
 
  
 

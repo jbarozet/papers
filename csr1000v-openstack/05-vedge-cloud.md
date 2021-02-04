@@ -15,11 +15,35 @@ Note: the same binary is used for vBond and vEdgeCloud.
 
 <br>
 
+## Flavors, Networks
+
+Create a vEdgeCloud flavor and create required networks (in this example sdwan-mgmt, sdwan-inet)
+
+<br>
+
+## Instantiate vEdgeCloud on Openstack (with day0 config)
+
+Create the vEdgeCloud server
+
+```bash
+# openstack server create --image vEdge_19.2.0 --flavor flavor_vEdge --network sdwan-mgmt --network mainnet --user-data vedge-day0-bootstrap.cfg vedge-test
+```
+
+Get VNC console
+
+ ```bash
+#  openstack console url show vedge-test
+ ```
+
+<br>
+
 ## Instantiate vEdgeCloud on Openstack (without day0 config)
 
-Create networks called sdwan-mgmt, sdwan-inet and sdwan-mpls
+### Create a new vEdgeCloud instance
 
-**Create a new vEdgeCloud instance.**
+```bash
+# openstack server create --image vEdge_19.2.0 --flavor flavor_vEdge --network sdwan-mgmt --network sdwan-inet vedge-test
+```
 
 Source
 - viptela-edge-20.1.1-genericx86-64.qcow2
@@ -29,12 +53,10 @@ Source
 Networks - Order is important:
 1. Add sdwan-mgmt first
 2. Then sdwan-inet
-3. Then sdwan-mgmt
+3. Then sdwan-mpls
 
 
 Plus any networks you need to connect to your LAN networks.
-
-I usually create an Openstack network per site.
 
 
 Interfaces:
@@ -45,17 +67,12 @@ Interfaces:
 
 ...etc
 
-<br>
-
-
-**IP Addresses**
+### Connect to the vEdgeCloud
 
 Get the IP addresses allocated to your interfaces
 
-<br>
 
-
-**Go to Openstack Console for the VM**
+Go to Openstack Console for the VM
 
 
 Add the minimum configuration so you can ssh to the VM.
@@ -81,9 +98,9 @@ vpn 0
 !
 ```
 
-<br>
 
-**Register the vEdgeCloud to the controllers**
+
+### Register the vEdgeCloud to the controllers
 
 Pick a uuid value => Chassis Number
 
@@ -128,8 +145,6 @@ vpn 512
  no shutdown
 !
 ```
-
- <br>
 
 Then activate the new UUID:
 

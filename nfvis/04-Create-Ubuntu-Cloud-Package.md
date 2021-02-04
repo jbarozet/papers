@@ -15,6 +15,8 @@ Using the following input files:
 
 The day0 config (clouding.cfg) is included in the package and therefore needs to be tokenised to that you can change the parameters for each new deployment.
 
+<br>
+
 ## Get Ubuntu Cloud image
 Cloud Images:
 + Ubuntu: https://cloud-images.ubuntu.com/
@@ -69,7 +71,10 @@ Format specific information:
 $
 ```
 
+<br>
+
 ## Bootstrap Files
+
 We will need to customize the image at first boot. The cloud systems are normally limited to key based authentication over SSH. This means that we cannot use a username and password. We will either need to inject SSH keys or set the password for the default user (or root which is less secure and not recommended, but here we just illustrate for a lab). We will also take the opportunity to set the host name. 
 
 **meta-data file:**
@@ -129,6 +134,8 @@ IMPORTANT NOTE:
 + ${NICID_0_CIDR_PREFIX} 
 
 are reserved parameters. The VM Lifecycle Manager (ESC-Lite) on NFVIS will replace these variables with values assigned by ESC-Lite. This is used for the int-mgmt-net addresses. They are assigned by NFVIS and not by DHCP.
+
+<br>
 
 ## Create ubuntu Package
 

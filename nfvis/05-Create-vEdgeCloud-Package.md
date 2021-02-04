@@ -19,6 +19,8 @@ cloudinit.cfg is the bootstrap configuration for the vEdgeCloud. This day0 confi
 
 meta_data and vendor_data are not used here and are essentially empty. 
 
+<br>
+
 ## cloud-init file format
 The bootstrap config is a MIME encoded file. See [Cloudinit User-Data Formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html)
 
@@ -46,6 +48,7 @@ The SD-WAN cloud-init file has two parts, cloud-config and cloud-boothook.
 ```
 
 ## cloud-config
+
 From version 17.2, “rcc” became just a binary switch. When rcc has any values, cloud-init finds ca-certs. “rcc: 1” is enough, however by giving cert itself to rcc, it can work on previous versions as well. ca-certs can be configured in the general way of cloud-init.
 
 [Cloudinit Example](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)
@@ -57,7 +60,10 @@ From version 17.2, “rcc” became just a binary switch. When rcc has any value
 *format-partition*: 1 is specifically for vManage. With it, 2nd partition of HDD will be formatted automatically. Otherwise, VM will keep wait for user to confirm to format it and initialization stops.
 
 ## cloud-boothook
+
 Each node has confd (Tail-F confd) inside, and it is the configuration database. Entered configuration here is imported into confd CDB when it is initialized.
+
+<br>
 
 ## Creating cloud-init file from vManage
 Create a Device Template and attach that template to your device. Enter all parameters and deploy.
@@ -65,13 +71,16 @@ Then go to Configuration > Device
 
 Click on the 3-dots on the right of a device and pick "Generate bootstrap configuration"
 ![picture-04](img/picture-04.png)
- 
+
 Then choose cloud-init file:
 ![picture-05](img/picture-05.png)
 
 vManage will generate a cloud-init file that contains the cloud-config and cloud-boothook parts. This file is MIME encoded and can be used to load the VM or as a ciscosdwan.cfg file for hardware device. You can then tune this file according to your needs.
 
+<br>
+
 ## Creating cloud-init file using Linux tools
+
 You can utilize “write-mime-multipart” application. It’s included in the cloud-utils package, so installation can be done in this way.
 
 Ubuntu or Debian
@@ -369,6 +378,8 @@ pseudo-confirm-commit 300
 
 **IMPORTANT NOTE:**
 > ${NICID_0_IP_ADDRESS}, ${NICID_0_NETMASK} and ${NICID_0_CIDR_PREFIX} are reserved parameters. The VM Lifecycle Manager (ESC-Lite) on NFVIS will replace these variables with values assigned by ESC-Lite. This is used for the int-mgmt-net addresses. They are assigned by NFVIS and not by DHCP.
+
+<br>
 
 ## Create vEdge package
 
