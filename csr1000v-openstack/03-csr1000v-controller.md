@@ -67,6 +67,8 @@ Click on the 3-dots on the right of a device and pick "Generate bootstrap config
 
 For KVM/Openstack select Cloud-Init. (VMWare uses Encoded String). Then click OK.
 
+You can either download the file and SCP it across to the host server, or copy and paste the contents via a terminal to the server. Use the method you are most comfortable with. That gives you the bootstrap config that you can apply when you instantiate the VM:
+
 ![virt-manager](img/csr1000v-02.png)
 
 vManage will generate a cloud-init file that contains the cloud-config and cloud-boothook parts. This file is MIME encoded and can be used to load the VM (ciscosdwan_cloud_init.cfg file) or for hardware device (ciscosdwan.cfg). This file has to be copied to the flash. 
