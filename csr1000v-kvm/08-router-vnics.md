@@ -1,7 +1,5 @@
 # Router Network Interfaces and vNICs
 
-<br>
-
 ## Router Interface to vNICs Mapping
 
 The Cisco CSR 1000v maps the GigabitEthernet network interfaces to the logical virtual network interface card (vNIC) name assigned by the VM. The VM in turn maps the logical vNIC name to a physical MAC address.

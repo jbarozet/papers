@@ -1,8 +1,34 @@
 # Create and Boot CSR1000v (Autonomous mode)
 
-## Creating the Cisco CSR 1000v VM Using virsh
+## 1. Creating a Bootstrap Day0 Configuration for virt-manager
 
-Using the virt-install command, create the instance and boot, using the following syntax:
+**Step1** - Create iosxe_config.txt or ovf-env.xml file
+
+See: 
+
+https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_0101.pdf
+
+And
+
+https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_0101.html#con_1337709
+
+<br>
+
+## 2. To pass Bootstrap File 
+
+Create a disk image from this file using below command
+
+```
+mkisofs -l -o config.iso <configuration_filename>
+```
+
+The next step is to instantiate the CSR and mount the config.iso as an additional disk.
+
+<br>
+
+## 3. Creating the Cisco CSR 1000v VM Using virsh
+
+Using the virt-install command, create the instance and boot, using the following syntax - the config.iso image is mounted as CDROM:
 
 ```bash
 # virt-install                  \
@@ -17,21 +43,22 @@ Using the virt-install command, create the instance and boot, using the followin
      --ram=4096                 \
      --import                   \
      --disk path=/home/jmb/kvm/disks/CSR-classic.qcow2,bus=ide,format=qcow2   \
+     --disk path=config.iso,device=cdrom \
      --noreboot
      --accelerate
 ```
 
 <br>
 
-## Creating the Cisco CSR 1000v VM Using the virt-manager GUI Tool (qcow2 or iso image)
+## 4. Creating the Cisco CSR 1000v VM Using the virt-manager GUI Tool (qcow2 or iso image)
 
 virt-manager, also known as Virtual Machine Manager, is a graphical tool for creating and managing guest virtual machines.
 
 - Step1 - Launch the virt-manager GUI. Click Create a new virtual machine.
 
 - Step2 - Do one of the following: 
-  - For .qcow2: Select Import existing disk image.
-  - For .iso: Select Local install media (ISO image or CDROM).
+  - For CSR .qcow2 file: Select Import existing disk image.
+  - For config .iso file: Select Local install media (ISO image or CDROM).
 
 - Step 3 - Select the CSR qcow2 or iso file location.
 
@@ -43,7 +70,7 @@ virt-manager, also known as Virtual Machine Manager, is a graphical tool for cre
 
 <br>
 
-## Creating the Serial Console Access in KVM
+## 5. Creating the Serial Console Access in KVM
 
 [CCO Reference](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_0111.html#con_1307796)
 
@@ -74,49 +101,7 @@ After the Cisco CSR 1000v has booted successfully, you can change the console po
 
  <br>
 
-## Creating a Bootstrap Day0 Configuration for virt-manager
-
-**Step1** - Create iosxe_config.txt or ovf-env.xml file
-
-See: 
-
-https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_0101.pdf
-
-And
-
-https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_0101.html#con_1337709
-
-**Step2** - Create a disk image from this file using below command
-
-```
-mkisofs -l -o config.iso <configuration_filename>
-```
-
-**Step3** - Mount the csr_config.iso as an additional disk during creation of the CSR virtual machine.
-
-Using the virt-install command, create the instance and boot, using the following syntax:
-
-```bash
-# virt-install                  \
-     --connect=qemu:///system   \
-     --name=my_csr_vm           \
-     --os-type=linux            \
-     --os-variant=rhel4         \
-     --arch=x86_64              \
-     --cpu host                 \
-     --vcpus=1,sockets=1,cores=1,threads=1   \
-     --hvm                      \
-     --ram=4096                 \
-     --import                   \
-     --disk path=/home/jmb/kvm/disks/CSR-classic.qcow2,bus=ide,format=qcow2   \
-     --disk path=config.iso,device=cdrom \
-     --noreboot
-     --accelerate
-```
-
-<br>
-
-## Determine the Active vCPU Distribution Template
+## 6. Determine the Active vCPU Distribution Template
 
 To determine which template is being used for vCPU distribution, use the following command:
 
@@ -138,15 +123,13 @@ The Control plane and the Service plane share cores 0 and 1.
 
 <br>
 
-## Mapping the Router Network Interfaces to vNICs
+## 7. Mapping the Router Network Interfaces to vNICs
 
 The Cisco CSR 1000v maps the GigabitEthernet network interfaces to the logical virtual network interface card (vNIC) name assigned by the VM. The VM in turn maps the logical vNIC name to a physical MAC address.
 
 When the Cisco CSR 1000v is booted for the first time, the router interfaces are mapped to the logical vNIC interfaces that were added when the VM was created. The figure below shows the relationship between the vNICs and the Cisco CSR 1000v router interfaces.
 
-<br>
-
-## Check Interface Mapping
+Check Interface Mapping
 
 ```
 csr51#sh platform software vnic-if interface-mapping
@@ -164,7 +147,7 @@ csr51#
 
 <br>
 
-## More Information
+## 8. More Information
 
 https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide.html
 

@@ -2,8 +2,6 @@
 
 # Increasing Performance on KVM Configurations
 
-<br>
-
 ## Introduction
 
 You can increase the performance for a Cisco CSR 1000v in a KVM environment by changing settings on the KVM host. These settings are independent of the Cisco IOS XE configuration settings on the Cisco CSR 1000v.
