@@ -1,16 +1,16 @@
 # Instantiate a vEdgeCloud
 
-## Generate Bootstrap Configuration (cloud-init file)
+## Generate Day0 Configuration
 
-To add a virtual edge you need to generate a bootstrap file. Navigate to the devices page under: Configuration > Devices > WAN Edge List
+### Creating Bootstrap file from vManage
 
-- Pick a vEdge Cloud
-- Click on 3-dots ...
-- Generate Bootstrap Configuration
+To instantiate a virtual edge with a day0 configuration, you need to generate a bootstrap file from vManage.
 
-Go to vManage > Devices
+Create a Device Template and attach that template to your device. Enter all parameters and deploy.
 
-Select a vEdgeCloud that is available and generate the bootstrap config
+Then go to Configuration > Device > WAN Edge List
+
+Click on the 3-dots on the right of a device and pick "Generate bootstrap configuration"
 
 ![vedgecloud-01](../csr1000v-openstack/img/vedgecloud-01.png)
 
@@ -20,15 +20,17 @@ A popup will appear:
 
 ![vedgecloud-02](../csr1000v-openstack/img/vedgecloud-02.png)
 
-For KVM select Cloud-Init. (VMWare uses Encoded String). Then click OK.
+For KVM and Openstack select Cloud-Init. (VMWare uses Encoded String). Then click OK.
 
 You can either download the file and SCP it across to the host server, or copy and paste the contents via a terminal to the server. Use the method you are most comfortable with. That gives you the bootstrap config that you can apply when you instantiate the VM:
 
 ![vedgecloud-03](../csr1000v-openstack/img/vedgecloud-03.png)
 
+vManage will generate a cloud-init file that contains the cloud-config and cloud-boothook parts. This file is MIME encoded and can be used to load the VM.
+
 <br>
 
-## cloud-init file conversion to ISO
+### cloud-init file conversion to ISO
 
 On the host server, create and ISO image from the cloud-init file that can be mounted to the vEdge on boot. I named the file vedge.cfg and copied it to the working directory.
 
