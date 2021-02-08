@@ -96,6 +96,8 @@ You may also optionally provide a vendor-data file in the following format.
 /vendor-data
 ```
 
+This is the option used to instantiate a vEdgeCloud on KVM in this paper.
+
 ### Config-Drive
 
 You can use the `config-drive` parameter to present a read-only drive to your instances. This drive can contain selected files that are then accessible to the instance. The configuration drive is attached to the instance at boot, and is presented to the instance as a partition. Configuration drives are useful when combined with *cloud-init* (for server bootstrapping), and when you want to pass large files to your instances.
@@ -103,6 +105,8 @@ You can use the `config-drive` parameter to present a read-only drive to your in
 You can **configure OpenStack** to write metadata to a special **configuration drive** that attaches to the instance when it boots. The instance can mount this **drive** and read files from it to get information that is normally available through the metadata service. This metadata is different from the user data.
 
 The Configuration drive feature enables administrators to automate the configuration of a VM at first boot by creating an ISO disk with user data files. Then Cloud-init or a similar system can configure the VM from the user data. The Configuration drive feature can be used on VMs with private network or no network connectivity, because the VM pulls its own configuration from the ISO and there is no need for an external process to connect to the VM to configure it.
+
+This is the option used to instantiate a CSR1000v on KVM in this paper.
 
 <br>
 

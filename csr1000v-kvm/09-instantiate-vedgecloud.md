@@ -75,7 +75,7 @@ refer to chapter 05 for more information. The procedure is the same.
 
 <br>
 
-### 4. cloud-init file conversion to ISO
+## 4. cloud-init file conversion to ISO
 
 Now we generate a seed disk that has the cloud-init metadata.`cloud-localds` creates a disk-image with user-data and/or meta-data for **cloud-init**. user-data can contain everything which is supported by cloud-init.
 
