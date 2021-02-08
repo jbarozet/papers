@@ -1,6 +1,6 @@
 # Create and Boot CSR1000v (Autonomous mode)
 
-## 1. Creating a Bootstrap Day0 Configuration for virt-manager
+## 1. Boostrap file
 
 **Step1** - Create iosxe_config.txt or ovf-env.xml file
 
@@ -14,12 +14,45 @@ https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_C
 
 <br>
 
+The following example of day0 config file illustrates an IOS-XE config that includes the bare minimum to be able to ssh to instance when running:
+
+```
+hostname csr-test
+!
+username admin privilege 15 password admin
+enable password Cisco123
+crypto key generate rsa modulus 2048
+ip domain-name cisco.com
+!
+interface GigabitEthernet1
+ ip address dhcp
+ no shutdown
+interface GigabitEthernet2
+ ip address dhcp
+ shutdown
+!
+ip http server
+ip http authentication local
+ip http secure-server
+ip ssh version 2
+ip scp server enable
+!
+line vty 0 4
+ login local
+ transport input ssh
+ transport output ssh
+!
+end
+```
+
+<br>
+
 ## 2. To pass Bootstrap File 
 
 Create a disk image from this file using below command
 
 ```
-mkisofs -l -o config.iso <configuration_filename>
+mkisofs -l -o config.iso iosxe_config.txt
 ```
 
 The next step is to instantiate the CSR and mount the config.iso as an additional disk.
@@ -57,8 +90,8 @@ virt-manager, also known as Virtual Machine Manager, is a graphical tool for cre
 - Step1 - Launch the virt-manager GUI. Click Create a new virtual machine.
 
 - Step2 - Do one of the following: 
-  - For CSR .qcow2 file: Select Import existing disk image.
-  - For config .iso file: Select Local install media (ISO image or CDROM).
+  - For CSR.qcow2 file: Select Import existing disk image.
+  - For config.iso file: Select Local install media (ISO image or CDROM).
 
 - Step 3 - Select the CSR qcow2 or iso file location.
 

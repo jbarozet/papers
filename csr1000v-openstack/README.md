@@ -7,7 +7,7 @@
 ***
 
 + [01 - introduction](01-introduction.md) 
-+ [02 - Cloud-init and Config Drive](02-cloudinit-configdrive.md) 
++ [02 - Cloud-init and Datasources](02-cloudinit-datasources.md) 
 + [03 - Instantiate CSR1000v in Controller Mode](03-csr1000v-controller.md) 
 + [04 - Instantiate CSR1000v in Autonomous-mode](04-csr1000v-autonomous.md) 
 + [05 - Instantiate vEdge Cloud](05-vedge-cloud.md) 

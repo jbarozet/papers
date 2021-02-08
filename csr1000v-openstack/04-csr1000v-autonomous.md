@@ -1,6 +1,8 @@
 # Instantiating CSR10000v in Autonomous Mode
 
-Deploying CSR1000v in autonomous mode with a day0 configuration, you have to use the `config-drive` option and give a bootstrap file.
+## Bootstrap File
+
+To deploy a CSR1000v in autonomous mode with a day0 configuration, you have to use the `config-drive` option and give a bootstrap file.
 
 The following example of day0 config file illustrates an IOS-XE config that includes the bare minimum to be able to ssh to instance when running:
 
@@ -31,14 +33,13 @@ line vty 0 4
  transport output ssh
 !
 end
-
 ```
 
 <br>
 
-Deploying CSR1000v in autonomous mode - With a config-drive option to start CSR1000v with an initial configuration (iosxe_config.txt).
+## Instantiating CSR10000v in Autonomous Mode with a Day0 config
 
-The --config-drive option can be used to specify that the configuration is loaded on the Cisco CSR 1000V when it comes up. Set the --config-drive option to “true” and specify the configuration file name. The configuration file can either use the “ovf-env.xml” file using the OVF format, or the “iosxe_config.txt” file in which you enter the router configuration to be booted.
+The following example illustrates an instantiation of a CSR1000v in autonomous mode with an initial configuration (iosxe_config.txt).
 
 ```bash
 # openstack server create --image CSR1000v-17.3.2 \
@@ -50,7 +51,7 @@ The --config-drive option can be used to specify that the configuration is loade
 #
 ```
 
-<br>
+**Note:** The `--config-drive` option can be used to specify that the configuration is loaded on the Cisco CSR 1000V when it comes up. Set the `--config-drive` option to “true” and specify the configuration file name. The configuration file can either use the “ovf-env.xml” file using the OVF format, or the “iosxe_config.txt” file in which you enter the router configuration to be booted.
 
 Check CSR instance:
 
@@ -89,15 +90,17 @@ Check CSR instance:
 [admin@berlin-cloud jmb(keystone_admin)]$
 ```
 
-<br>
+Get VNC console
+
+ ```
+$  openstack console url show <server>
+ ```
 
 Then you can switch to control mode - Be careful that configuration will be fully erased:
 
 ```
 # controller-mode enable
 ```
-
-<br>
 
 If you want to reboot in controller-mode with a day0 configuration, you can generate a bootstrap file from vManage and copy that file into flash with the exact filename `ciscosdwan_cloud_init.cfg`. 
 
