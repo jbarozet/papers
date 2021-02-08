@@ -391,14 +391,13 @@ Then copy this file to your openstack cluster - this will be the image disk used
 
 If image doesn’t exist, upload it
 
-```
+```bash
 openstack image create --disk-format qcow2 --container-format bare --file $IMAGE_FILE $IMAGE_NAME
-
 ```
 
 Example:
 
-```
+```bash
 openstack image create --disk-format qcow2 --container-format bare --file csr1000v-universalk9.17.02.01prd14.qcow2 csr1000v-17.02.01
 ```
 
@@ -413,7 +412,7 @@ In this specific paper, I've created a flavor called `flavour_csr` and the follo
 
 ### Deploy
 
-Deploying CSR1000v in controller mode with a day0 configuration, you have to use the `config-drive` option and give the bootstrap file that was generated in section 2 (create bootstrap file): `ciscosdwan_cloud_init.cfg`
+Deploying CSR1000v in controller mode with a day0 configuration, you have to use the `config-drive` option and give the bootstrap file that was generated in section 2 or 3 (create bootstrap file): `ciscosdwan_cloud_init.cfg`
 
 ```bash
 # openstack server create --image csr1000v-17.02.01 \
